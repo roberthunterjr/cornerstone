@@ -5,24 +5,33 @@
     </div>
 </div>
 {{/if}}
-<header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
-        <span class="mobileMenu-toggleIcon">Toggle menu</span>
-    </a>
-    {{> components/common/navigation}}
-
-    {{#if page_type '===' 'default'}}
-        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </h1>
-    {{else}}
-        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
+<header class="header header-container" role="banner">
+  <div class="header">
+    <div class="row">
+      <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+          <span class="mobileMenu-toggleIcon">Toggle menu</span>
+      </a>
+      <div class="col-sm-2">
+        {{#if page_type '===' 'default'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}
+      </div>
+      {{{region name="header_bottom"}}}
+      <div class="col-lg-5">
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
         </div>
-    {{/if}}
-    {{{region name="header_bottom"}}}
-    <div class="navPages-container" id="menu" data-menu>
-        {{> components/common/navigation-menu}}
+      </div>
+      <div class="col-lg-5">
+        {{> components/common/navigation}}
+      </div>
     </div>
 
+  </div>
 </header>
